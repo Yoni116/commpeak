@@ -1,4 +1,7 @@
 
+{!!Html::style('css/bootstrap.css')!!}
+
+<div class="col-lg-4">
 <h1>Contact Us</h1>
 
 <ul>
@@ -6,6 +9,7 @@
         <li>{{ $error }}</li>
 @endforeach
 </ul>
+
 
 {!! Form::open(array('route' => 'contact_save', 'class' => 'form')) !!}
 
@@ -50,3 +54,5 @@
         array('class'=>'btn btn-primary')) !!}
 </div>
 {!! Form::close() !!}
+
+</div>
