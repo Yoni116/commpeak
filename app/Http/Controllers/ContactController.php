@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ContactFormRequest;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -11,7 +12,12 @@ class ContactController extends Controller
         return view('contact');
     }
 
-    public function save()
+    public function save(ContactFormRequest $request)
     {
+        $requestData = $request->get('name').",".$request->get('email').",".$request->get('subject').",".$request->get('content');
+        saveToCSV($requestData);
+        return view('response')->with('message',"Thank you " .$request->get('name'). " for contacting us!");
     }
+
+
 }

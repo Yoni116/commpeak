@@ -12,11 +12,14 @@ class ContactFormRequest extends FormRequest
         return true;
     }
 
- 
+
     public function rules()
     {
         return [
-            //
+            'name' => 'required',
+            'email' => 'required|email',
+            'subject' => 'required',
+            'content' => 'required',
         ];
     }
 }

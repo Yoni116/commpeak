@@ -26,7 +26,7 @@
     {!! Form::label('Your E-mail Address') !!}
     <br>
     {!! Form::text('email', null,
-        array('required',
+        array('required|email',
             'class'=>'form-control',
             'placeholder'=>'example@example.com')) !!}
 </div>
@@ -43,7 +43,7 @@
 <div class="form-group">
     {!! Form::label('Content') !!}
     <br>
-    {!! Form::textarea('Content', null,
+    {!! Form::textarea('content', null,
         array('required',
             'class'=>'form-control',
             'placeholder'=>'Your message')) !!}

@@ -16,3 +16,9 @@ Route::get('contact',
 
 Route::post('contact',
     ['as' => 'contact_save', 'uses' => 'ContactController@save']);
+
+Route::get('importTask',
+    ['as' => 'importTask_create', 'uses' => 'importTaskController@create']);
+
+Route::post('importTask',
+    ['as' => 'importTask_import', 'uses' => 'importTaskController@import']);
