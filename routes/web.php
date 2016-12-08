@@ -22,3 +22,6 @@ Route::get('importTask',
 
 Route::post('importTask',
     ['as' => 'importTask_import', 'uses' => 'importTaskController@import']);
+
+Route::get('showData',
+    ['as' => 'showData_create', 'uses' => 'DataController@getData']);

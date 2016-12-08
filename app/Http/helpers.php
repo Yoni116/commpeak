@@ -16,18 +16,35 @@ function saveToCSV($info){
 
 function importToDB(){
 
-    if (($handle = fopen(constant("CSVPath"),'r')) !== FALSE)
-    {
-        while (($data = fgetcsv($handle, 1000, ',')) !==FALSE)
-        {
-            $contact = new contact();
-            $contact->name = $data[0];
-            $contact->email = $data[1];
-            $contact->subject = $data[2];
-            $contact->content = $data[3];
-            $contact->save();
+
+    try {
+
+        //open file and transfer date to db
+        if (($handle = fopen(constant("CSVPath"), 'r')) !== FALSE) {
+            while (($data = fgetcsv($handle, 1000, ',')) !== FALSE) {
+                $contact = new contact();
+                $contact->name = $data[0];
+                $contact->email = $data[1];
+                $contact->subject = $data[2];
+                $contact->content = $data[3];
+                $contact->save();
+            }
+            fclose($handle);
+
+            //clear file
+            $fh = fopen( constant("CSVPath"), 'w' );
+            fclose($fh);
+
+            return "Success";
+        } else {
+            return "Something went wrong ";
         }
-        fclose($handle);
+    }catch (Exception $e) {
+        return "Something went wrong ";
     }
+
+
+
+
 
 }

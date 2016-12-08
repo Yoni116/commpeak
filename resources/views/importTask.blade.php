@@ -1,7 +1,8 @@
-{!!Html::style('css/bootstrap.css')!!}
-
+@extends('layout')
+@section('content')
 <div class="col-lg-4">
 
+    <h1>Import To DB</h1>
     {!! Form::open(array('route' => 'importTask_create', 'class' => 'form')) !!}
 
     <div class="form-group">

@@ -13,6 +13,7 @@ class importTaskController extends Controller
 
     public function import()
     {
-        importToDB();
+        $status = importToDB();
+        return view('response')->with('message',$status);
     }
 }
